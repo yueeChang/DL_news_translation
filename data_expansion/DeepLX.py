@@ -13,8 +13,8 @@ def translate_deeplx(text, source_lang="EN", target_lang="ZH"):
     return response.json().get("translations", [{}])[0].get("text", "")
 
 #read the de-en data
-input_file = "de_en_data.json"
-output_file = "de_en_zh_data.json"
+input_file = "WMT_deen.json"
+output_file = "WMT_deenzh.json"
 
 with open(input_file, "r", encoding="utf-8") as f:
     data = json.load(f)  # 读取 JSON 数据
