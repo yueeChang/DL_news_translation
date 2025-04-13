@@ -9,11 +9,11 @@ def translate_deeplx(text, source_lang="EN", target_lang="ZH"):
         "source_lang": source_lang.upper(),
         "target_lang": target_lang.upper()
     }
-    response = requests.post(url, json=payload)
+    
+    response = requests.post(url, json=payload, proxies={"http": None, "https": None})
     return response.json().get("translations", [{}])[0].get("text", "")
-
 #read the de-en data
-input_file = "WMT_deen.json"
+input_file = "C:/Users/DELL/Desktop/folderforall/本科毕业论文/DL_news_translation/data_expansion/WMT_deen.json"
 output_file = "WMT_deenzh.json"
 
 with open(input_file, "r", encoding="utf-8") as f:
