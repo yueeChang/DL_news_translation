@@ -1,4 +1,3 @@
-#pzOq2QTSoggacdMOOC3n
 import json
 import requests
 import hashlib
@@ -9,7 +8,7 @@ import time
 APP_ID = "20250327002316713"
 SECRET_KEY = "pzOq2QTSoggacdMOOC3n"
 
-def translate_batch_baidu(query, from_lang='en', to_lang='de'):
+def translate_batch_baidu(query, from_lang='en', to_lang='zh'):
     """
     translate English data to German
     """
@@ -40,8 +39,8 @@ def translate_batch_baidu(query, from_lang='en', to_lang='de'):
         return None
 
 # set paths of input data
-input_file = "C:/Users/DELL/Desktop/folderforall/本科毕业论文/DL_news_translation/data_expansion/compare_baidu_deepL/compare_enzh.json"
-output_file = "baidu_compare_translated_entode.json"
+input_file = "C:/Users/DELL/Desktop/folderforall/本科毕业论文/DL_news_translation/data_expansion/compare_baidu_deepL/compare_deen.json"
+output_file = "baidu_compare_translated_entozh.json"
 
 # load json file
 with open(input_file, "r", encoding="utf-8") as f:
@@ -53,9 +52,9 @@ print('finished loading, translation begins...')
 for i, item in enumerate(data):
     en_text = item.get("en", "")
     if en_text:
-        translated = translate_batch_baidu(en_text, from_lang="en", to_lang="de")
+        translated = translate_batch_baidu(en_text, from_lang="en", to_lang="zh")
         print(f"[{i+1}] original text: {en_text} | translation: {translated}")
-        item["de"] = translated
+        item["zh"] = translated
 
 print("translation finished")
 
